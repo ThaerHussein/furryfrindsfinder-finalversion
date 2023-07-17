@@ -177,6 +177,54 @@
           "
           id="cards"
         >
+          <div class="card" id="sec">
+            <div class="face">
+              <button
+                class="but"
+                id="more-details"
+                onclick="
+            document.getElementById('sec').classList.add(`flip`)
+                
+                "
+              >
+                Click me
+              </button>
+            </div>
+            <div class="back">
+              <h2>Aliiiii</h2>
+              <ul>
+                <li>a</li>
+                <li>s</li>
+                <li>d</li>
+                <li>e</li>
+                <li>f</li>
+              </ul>
+              <button
+                class="but-adp"
+                onclick="
+const overlay = document.createElement('div');
+overlay.classList.add('overlay');
+
+const adpSubmit = document.createElement('div');
+adpSubmit.classList.add('adp-submit');
+
+const submitButton = document.createElement('button');
+submitButton.textContent = 'Submit';
+
+const cancelButton = document.createElement('button');
+cancelButton.textContent = 'Cancel';
+
+adpSubmit.appendChild(submitButton);
+adpSubmit.appendChild(cancelButton);
+overlay.appendChild(adpSubmit);
+
+document.body.appendChild(overlay);
+              "
+              >
+                meow
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
