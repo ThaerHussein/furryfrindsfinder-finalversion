@@ -77,7 +77,7 @@ function generateCard(x, data) {
 
   let back = document.createElement("div");
   back.classList.add("back");
-  generateBack(back,data)
+  generateBack(back, data);
   card.appendChild(face);
   card.appendChild(back);
   x.appendChild(card);
@@ -108,5 +108,31 @@ function generateBack(back, data) {
   let button = document.createElement("button");
   button.className = "but-adp";
   button.textContent = "Adopt";
+  button.addEventListener("click", () => {
+    submit();
+  });
   back.appendChild(button);
+}
+
+function submit() {
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay");
+
+  const adpSubmit = document.createElement("div");
+  adpSubmit.classList.add("adp-submit");
+  const submitTilte = document.createElement("p");
+  submitTilte.textContent = "Press submit if you want to continue !";
+
+  const submitButton = document.createElement("button");
+  submitButton.textContent = "Submit";
+
+  const cancelButton = document.createElement("button");
+  cancelButton.textContent = "Cancel";
+
+  adpSubmit.appendChild(submitButton);
+  adpSubmit.appendChild(cancelButton);
+  adpSubmit.appendChild(submitTilte);
+  overlay.appendChild(adpSubmit);
+
+  document.body.appendChild(overlay);
 }

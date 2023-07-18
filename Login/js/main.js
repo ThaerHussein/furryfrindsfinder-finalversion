@@ -34,8 +34,6 @@ login.addEventListener("submit", (e) => {
   window.location.href = "../home_page/index.html";
 
 
-
-  
   //Uncomment 14-34
   // const xhr = new XMLHttpRequest();
   // xhr.open(
