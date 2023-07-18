@@ -37,7 +37,6 @@
   border-radius: 5px;
   border: none;
   background-color: aliceblue;
-  font-weight: 400;
   cursor: pointer;
 }
 
@@ -96,8 +95,8 @@ body .overlay {
 }
 
 body .overlay .adp-submit {
-  width: 40%;
-  height: 20%;
+  width: 500px;
+  height: 150px;
   background-color: white;
   display: flex;
   justify-content: flex-end;
@@ -108,7 +107,7 @@ body .overlay .adp-submit {
   padding-right: 20px;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 20%;
   transform: translate(-50%, -80%);
 }
 
