@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function generateCard(x, data) {
   let card = document.createElement("div");
   card.classList.add("card");
-  card.dataset.id = data.id
+  card.dataset.id = data.id;
   card.addEventListener("mouseleave", () => {
     card.classList.remove("flip");
   });
@@ -57,7 +57,7 @@ function generateCard(x, data) {
   but.addEventListener("click", () => {
     let card = but.parentElement.parentElement;
     card.classList.add("flip");
-    localStorage.setItem('id',data.id)
+    localStorage.setItem("id", data.id);
   });
   face.appendChild(but);
   let back = document.createElement("div");
@@ -90,12 +90,13 @@ function generateBack(back, data) {
   button.className = "but-adp";
   button.textContent = "Adopt";
   button.addEventListener("click", () => {
-    submit();
+    submit(data.id);
   });
   back.appendChild(button);
 }
 
-function submit() {
+function submit(id) {
+  console.log(id);
   const overlay = document.createElement("div");
   overlay.classList.add("overlay");
   const adpSubmit = document.createElement("div");
@@ -105,35 +106,21 @@ function submit() {
   const submitButton = document.createElement("button");
   submitButton.textContent = "Submit";
   submitButton.addEventListener("click", (e) => {
-    console.log(e)
-    // let xhr = new XMLHttpRequest();
-    // let url = "http://localhost:8080/furryfinderfriends/api/v1/user/adopt/submit?animalId=1";
-    // xhr.open("POST", url, true);
-    // xhr.setRequestHeader("Content-Type", "application/xml");
-    // xhr.setRequestHeader("Authorization", userD.token);
-    // xhr.onreadystatechange = function () {
-    //   if (xhr.readyState === 4) {
-    //     if (xhr.status === 200) {
-    //       let response = JSON.parse(xhr.responseText).data;
-    //       for (let i = 0; i < response.length; i++) {
-    //         generateCard(body, response[i]);
-    //       }
-    //     } else {
-    //       console.log("Request failed with status: " + xhr.status);
-    //     }
-    //   }
-    // };
-    // xhr.send();
-
-
-
-
-
-
-
-
-
-
+    let xhr = new XMLHttpRequest();
+    let url = `http://localhost:8080/furryfinderfriends/api/v1/user/adopt/submit?animalId=${id}`;
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/xml");
+    xhr.setRequestHeader("Authorization", userD.token);
+    xhr.onreadystatechange = function () {
+      if (xhr.status === 200) {
+        alert("The request has been submitted");
+        overlay.remove();
+      } else {
+        alert("Somthing wrong with the request please try later");
+        overlay.remove();
+      }
+    };
+    xhr.send();
   });
   const cancelButton = document.createElement("button");
   cancelButton.addEventListener("click", () => {
